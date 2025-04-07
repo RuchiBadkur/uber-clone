@@ -55,7 +55,7 @@ userSchema.methods.generateAuthToken = () => {
 // It hashes your input the same way it was originally hashed
 // Then it compares both results
 // Returns true if they match, false if not
-userSchema.methods.comaprePassword = async function(password){
+userSchema.methods.comparePassword = async function(password){
     return await bcrypt.compare(password, this.password);
 }
 
