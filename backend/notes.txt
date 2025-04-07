@@ -1,0 +1,26 @@
+backend: 
+
+
+🧠 Why split server.js and app.js?
+✅app.js is only responsible for configuring your Express app (routes, middleware, etc).
+✅server.js is only responsible for creating the HTTP server and telling it to listen.
+
+--curious to know-----------
+
+bcrypt => password encryption, hashpassword, 
+sha256 algorithm (like there are algorithms to encrypt the password like if the password is abc => cfe, and xyz will be wxy but they are very easy to crack so we use the sha256 algorithm)
+
+
+
+-----
+jsonwebtoken, jwt authentication, 
+
+
+-----
+socketid: live tracking and share the location
+
+
+-----
+express-validator
+
+
