@@ -7,11 +7,11 @@ const userSchema = new mongoose.Schema({
         firstname: {
             type: String,
             required: true,
-            minlength: [3, "First name must be at least 3 characters"]
+            minlength: [3, "First name must be at least 3 characters long"]
         },
         lastname: {
             type: String,
-            minlength: [3, "Last name must be at least 3 characters"]
+            minlength: [3, "Last name must be at least 3 characters long"]
         },
     },
     email: {
@@ -35,10 +35,10 @@ const userSchema = new mongoose.Schema({
 
 //on login--
 //In Mongoose, schema.methods lets you define custom functions for the documents (i.e., for each user, post, etc).
-userSchema.methods.generateAuthToken = () => {
+userSchema.methods.generateAuthToken = function(){
     //jwt.sign()
     //This function is used to create/sign a new token.
-    const token = jwt.sign({_id: this._id}, process.env.JWT_SECRET)
+    const token = jwt.sign({_id: this._id.toString()}, process.env.JWT_SECRET, {expiresIn: "24h"})
     //{ _id: this._id } This is the payload — the data we want to include in the token.
     //this._id → refers to the current user’s unique ID.
     //process.env.JWT_SECRET → is the secret key used to sign the token securely.

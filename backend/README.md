@@ -4,7 +4,7 @@
 
 ### 🔄 User Registration Flow
 
-<pre>
+
 ```
 Client
   |
@@ -23,7 +23,7 @@ Generate JWT Token
   ↓
 Success Response (201 Created)
   └── { token, user }
-``` </pre>
+``` 
 
 
 ### POST `/user/register`
