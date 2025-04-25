@@ -2,7 +2,7 @@
 const userModel = require("../models/user.model");
 const userService = require("../services/user.service")
 const {validationResult} = require("express-validator")
-const blackListTokenModel = require("../models/blacklistTokenModel")
+const blackListTokenModel = require("../models/blacklistToken.model")
 
 //create/register an user
 module.exports.registerUser = async (req, res, next) => {
@@ -29,7 +29,7 @@ module.exports.registerUser = async (req, res, next) => {
     })
 
     const token = user.generateAuthToken();
-    console.log("generated token: ", token)
+    // console.log("generated token: ", token)
 
 
     res.status(201).json({token, user})
