@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import uberLogo from "../assets/uber-logo.png"
-import { Link } from 'react-router-dom'
-
+import { Link, useNavigate } from 'react-router-dom'
+import axios from 'axios'
+import {UserDataContext} from "../context/UserContext"
 
 const UserSignup = () => {
   const [email, setEmail] = useState("")
@@ -10,16 +11,31 @@ const UserSignup = () => {
   const [firstname, setFirstname] = useState("")
   const [lastname, setLastname] = useState("")
 
-  const submitHandler = (e) => {
+  const navigate = useNavigate()
+
+  const {user, setUser} = useContext(UserDataContext)
+
+  const submitHandler = async (e) => {
     e.preventDefault()
-    setUserData({
-      username: {
+    const newUser = {
+      fullname: {
         firstname: firstname,
         lastname: lastname
       },
       email: email, 
       password: password,
-    })
+    }
+
+    const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/users/register`, newUser)
+
+    if(response.status === 201){
+      const data = response.data
+      setUser(data.user)
+      localStorage.setItem('token', data.token)
+      navigate('/home')
+    }
+
+
     setFirstname("")
     setLastname("")
     setEmail("")
@@ -75,7 +91,7 @@ const UserSignup = () => {
           
           <button
           className='bg-[#000000] text-white font-semibold mb-3 rounded px-4 py-2 w-full text-lg placeholder:text-base'
-          >Sign up</button>
+          >Create Account</button>
 
         </form>
           <p className='text-center'>Already have a account? <Link className='text-blue-600' to="/login">Login here</Link>

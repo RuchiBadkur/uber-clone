@@ -8,12 +8,12 @@ const CaptainSignup = () => {
   const [lastname, setLastname] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-  const [captainData, setCaptainData] = useState({})
+  const [userData, setUserData] = useState({})
 
   const submitHandler = (e) => {
     e.preventDefault()
-    setCaptainData({
-      captainname: {
+    setUserData({
+      fullname: {
         firstname: firstname,
         lastname: lastname
       },
