@@ -9,9 +9,9 @@ const UserLogin = () => {
   const [password, setPassword] = useState("")
   // const [userData, setUserData] = useState({})
 
-  const navigate = useNavigate()
-
+  
   const {user, setUser} = useContext(UserDataContext)
+  const navigate = useNavigate()
 
   const submitHandler = async (e) => {
     e.preventDefault()
