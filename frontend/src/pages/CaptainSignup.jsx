@@ -165,7 +165,7 @@ const CaptainSignup = () => {
               </p>
           </div>
           <div>
-          <p className='text-xs text-[#514f4f] leading-tight'>Our guidelines were developed to help make every experience feel safe, respectful, and positive.
+          <p className='text-[10px] mt-6 text-[#514f4f] leading-tight'>Our guidelines were developed to help make every experience feel safe, respectful, and positive.
           Everyone who signs up for an Uber account across all of our apps is expected to follow the guidelines. </p>
           </div>
         </div>

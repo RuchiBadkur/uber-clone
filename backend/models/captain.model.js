@@ -18,17 +18,16 @@ const captainSchema = new mongoose.Schema({
             type: String,
             required: true,
             unique: true,
-            minlength: [5, "Email must be at least 5 characters"]
+            lowercase: true,
+            match: [/^\S+@\S+\.\S+$/, 'Please enter a valid email']
     },
     password: {
             type: String,
             required: true,
-            select: false
-            //jwt authentication
+            select: false,
     },
     socketId: {
             type: String,
-            //livetracking, to share the location
     },
     status: {
         type: String,
